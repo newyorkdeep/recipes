@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Details</title>
+</head>
+<body>
+    Title:
+    {{myentrie.title}} <p></p>
+    Ingridients list:
+    {{myentrie.compound}} <p></p>
+    Process of cooking:
+    {{myentrie.cooking}}   <p></p> 
+
+    <form action="editrecord/{{myentrie.id}}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Edit">    
+    </form>
+    <p></p>
+    <form action="deleterecord/{{myentrie.id}}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form> 
+    <p></p>
+    <a href="/">Go back</a>
+</body>
+</html>

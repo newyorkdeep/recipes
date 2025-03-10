@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit</title>
+</head>
+<body>
+    <form action="completeedit/{{myentrie.id}}" method="post">
+        {% csrf_token %}
+        Title:<br>
+        <input name="title" value="{{myentrie.title}}">
+        <br><br>
+        Ingridients:<br>
+        <input name="compound" value="{{myentrie.compound}}">
+        <br><br>
+        The process of cooking:<br>
+        <input name="cooking" value="{{myentrie.cooking}}">
+        <br><br>
+        <input type="submit" value="Submit changes">
+      </form>
+      <p></p>
+      <a href="/details/{{myentrie.id}}">Go back</a>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+<h1>Save your recipes here!</h1>
+<form action="addrecord/" method="post">
+  {% csrf_token %}
+  Title:<br>
+  <input name="title">
+  <br><br>
+  Ingridients:<br>
+  <input name="compound">
+  <br><br>
+  The process of cooking:<br>
+  <input name="cooking">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<ul class="listt">
+  {% for item in myentries %}
+    <li><a href="details/{{item.id}}">{{ item.title }}</a></li>
+  {% endfor %}
+</ul>
+
+</body>
+</html>
